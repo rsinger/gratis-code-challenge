@@ -1,0 +1,82 @@
+{layout 'layout.latte'}
+
+{block content}
+<form method="post" action="/inventory/{$vehicle->getId()}">
+    <input type="hidden" name="location_id" value="{$location->getId()}">
+    <div class="row">
+        <div class="col-12">
+            <div class="mb-3">
+                <label for="type" class="form-label">Condition</label>
+                <select class="form-control" id="type" name="inventory_type">
+                    <option {$vehicle->getInventoryType()->value === 'new' ? ' selected' : ''}>new</option>
+                    <option {$vehicle->getInventoryType()->value === 'used' ? ' selected' : ''}>used</option>
+                    <option value="certified" {$vehicle->getInventoryType()->value === 'certified' ? ' selected' : ''}>certified pre-owned</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="make" class="form-label">Make</label>
+                <input type="text" class="form-control" id="make" name="make" value="{$vehicle->getMake()}">
+            </div>
+            <div class="mb-3">
+                <label for="model" class="form-label">Model</label>
+                <input type="text" class="form-control" id="model" name="model" value="{$vehicle->getModel()}">
+            </div>
+            <div class="mb-3">
+                <label for="trim" class="form-label">Trim</label>
+                <input type="text" class="form-control" id="trim" name="trim" value="{$vehicle->getTrim()}">
+            </div>
+            <div class="mb-3">
+                <label for="year" class="form-label">Year</label>
+                <input type="number" class="form-control" id="year" name="year" value="{$vehicle->getYear()}">
+            </div>
+            <div class="mb-3">
+                <label for="mileage" class="form-label">Mileage</label>
+                <input type="number" class="form-control" id="mileage" name="mileage" value="{$vehicle->getMileage()}">
+            </div>
+            <div class="mb-3">
+                <label for="price" class="form-label">Price</label>
+                <input type="number" class="form-control" id="price" name="price" value="{$vehicle->getPrice()}">
+            </div>
+            <div class="mb-3">
+                <label for="exteriorColor" class="form-label">Exterior Color</label>
+                <select class="form-control" id="exteriorColor" name="exterior_color">
+                    <option {$vehicle->getExteriorColor() === 'red' ? ' selected' : ''}>red</option>
+                    <option {$vehicle->getExteriorColor() === 'blue' ? ' selected' : ''}>blue</option>
+                    <option {$vehicle->getExteriorColor() === 'green' ? ' selected' : ''}>green</option>
+                    <option {$vehicle->getExteriorColor() === 'black' ? ' selected' : ''}>black</option>
+                    <option {$vehicle->getExteriorColor() === 'white' ? ' selected' : ''}>white</option>
+                    <option {$vehicle->getExteriorColor() === 'silver' ? ' selected' : ''}>silver</option>
+                    <option {$vehicle->getExteriorColor() === 'gray' ? ' selected' : ''}>gray</option>
+                    <option {$vehicle->getExteriorColor() === 'yellow' ? ' selected' : ''}>yellow</option>
+                    <option {$vehicle->getExteriorColor() === 'orange' ? ' selected' : ''}>orange</option>
+                    <option {$vehicle->getExteriorColor() === 'brown' ? ' selected' : ''}>brown</option>
+                    <option {$vehicle->getExteriorColor() === 'gold' ? ' selected' : ''}>gold</option>
+                    <option {$vehicle->getExteriorColor() === 'purple' ? ' selected' : ''}>purple</option>
+                    <option {$vehicle->getExteriorColor() === 'pink' ? ' selected' : ''}>pink</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="interiorColor" class="form-label">Interior Color</label>
+                <select class="form-control" id="interiorColor" name="interior_color">
+                    <option {$vehicle->getInteriorColor() === 'black' ? ' selected' : ''}>black</option>
+                    <option {$vehicle->getInteriorColor() === 'gray' ? ' selected' : ''}>gray</option>
+                    <option {$vehicle->getInteriorColor() === 'beige' ? ' selected' : ''}>beige</option>
+                    <option {$vehicle->getInteriorColor() === 'brown' ? ' selected' : ''}>brown</option>
+                    <option {$vehicle->getInteriorColor() === 'white' ? ' selected' : ''}>white</option>
+                    <option {$vehicle->getInteriorColor() === 'red' ? ' selected' : ''}>red</option>
+                    <option {$vehicle->getInteriorColor() === 'blue' ? ' selected' : ''}>blue</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="vin" class="form-label">VIN</label>
+                <input type="text" class="form-control" id="vin" name="vin" value="{$vehicle->getVin()}">
+            </div>
+            <div class="mb-3">
+                <label for="image" class="form-label">Image URL</label>
+                <input type="text" class="form-control" id="image" name="image_url" value="{$vehicle->getImageUrl()}">
+            </div>
+            <button type="submit" class="btn btn-primary">Update Vehicle</button>
+        </div>
+    </div>
+</form>
+{/block}

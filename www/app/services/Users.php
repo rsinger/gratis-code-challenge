@@ -19,7 +19,7 @@ class Users
         $stmt = $this->db->prepare('INSERT INTO users (email, password_hash, location_id) VALUES (:email, :password_hash, :location_id)');
         $stmt->execute([
             'email' => $email,
-            'password_hash' => password_hash($password, PASSWORD_BCRYPT),
+            'password_hash' => $password, // FIXME: Hash password
             'location_id' => $locationId
         ]);
 

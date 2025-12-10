@@ -6,7 +6,7 @@ use DateTime;
 
 class Vehicle
 {
-    private int $id;
+    private ?int $id;
     private string $make;
     private string $model;
     private string $trim;
@@ -24,7 +24,7 @@ class Vehicle
     private int $addedByUserId;
 
     public function __construct(
-        int $id,
+        ?int $id,
         string $make,
         string $model,
         string $trim,
@@ -69,9 +69,19 @@ class Vehicle
         return $this->make;
     }
 
+    public function setMake(string $make): void
+    {
+        $this->make = $make;
+    }
+
     public function getModel(): string
     {
         return $this->model;
+    }
+
+    public function setModel(string $model): void
+    {
+        $this->model = $model;
     }
 
     public function getTrim(): string
@@ -79,14 +89,29 @@ class Vehicle
         return $this->trim;
     }
 
+    public function setTrim(string $trim): void
+    {
+        $this->trim = $trim;
+    }
+
     public function getInventoryType(): InventoryType
     {
         return $this->inventoryType;
     }
 
+    public function setInventoryType(InventoryType $inventoryType): void
+    {
+        $this->inventoryType = $inventoryType;
+    }
+
     public function getYear(): int
     {
         return $this->year;
+    }
+
+    public function setYear(int $year): void
+    {
+        $this->year = $year;
     }
     
     public function getExteriorColor(): string
@@ -94,9 +119,19 @@ class Vehicle
         return $this->exteriorColor;
     }
 
+    public function setExteriorColor(string $exteriorColor): void
+    {
+        $this->exteriorColor = $exteriorColor;
+    }
+
     public function getInteriorColor(): string
     {
         return $this->interiorColor;
+    }
+
+    public function setInteriorColor(string $interiorColor): void
+    {
+        $this->interiorColor = $interiorColor;
     }
 
     public function getVin(): string
@@ -104,19 +139,38 @@ class Vehicle
         return $this->vin;
     }
 
+    public function setVin(string $vin): void
+    {
+        $this->vin = $vin;
+    }   
+
     public function getImageUrl(): string
     {
         return $this->imageUrl;
     }
 
+    public function setImageUrl(string $imageUrl): void
+    {
+        $this->imageUrl = $imageUrl;
+    }   
     public function getMileage(): int
     {
         return $this->mileage;
     }
 
+    public function setMileage(int $mileage): void
+    {
+        $this->mileage = $mileage;
+    }   
+
     public function getPrice(): float
     {
         return $this->price;
+    }
+
+    public function setPrice(float $price): void
+    {
+        $this->price = $price;
     }
 
     public function getCreatedAt(): DateTime
@@ -129,8 +183,18 @@ class Vehicle
         return $this->updatedAt;
     }
 
+    public function setUpdatedAt(DateTime $updatedAt): void
+    {
+        $this->updatedAt = $updatedAt;
+    }    
+
     public function getLocationId(): int
     {
         return $this->locationId;
+    }
+    
+    public function getAddedByUserId(): int
+    {
+        return $this->addedByUserId;
     }
 }

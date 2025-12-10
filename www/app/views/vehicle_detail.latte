@@ -1,0 +1,34 @@
+{layout 'layout.latte'}
+
+{block content}
+<div class="row">
+    <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+            <img src="{$vehicle->getImageUrl()}" class="bd-placeholder-img card-img-top" width="100%" height="225"
+                alt="{$vehicle->getMake()} {$vehicle->getModel()}">
+            <div class="card-body">
+                <h5 class="card-title">{$vehicle->getYear()} {$vehicle->getMake()} {$vehicle->getModel()}</h5>
+                <p class="card-text">Price: ${$vehicle->getPrice()}</p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                        <a n:if={$user} class="btn btn-sm btn-outline-secondary"
+                            href="/inventory/edit/{$vehicle->getId()}">Edit</a>
+                    </div>
+                    <small class="text-muted">{$vehicle->getMileage()} miles</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <h3>Vehicle Details</h3>
+        <ul>
+            <li>Condition: {$vehicle->getInventoryType()->value}</li>
+            <li>Trim: {$vehicle->getTrim()}</li>
+            <li>Exterior Color: {$vehicle->getExteriorColor()}</li>
+            <li>Interior Color: {$vehicle->getInteriorColor()}</li>
+            <li>VIN: {$vehicle->getVin()}</li>
+        </ul>
+    </div>
+{/block}

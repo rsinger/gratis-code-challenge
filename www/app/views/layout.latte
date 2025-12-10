@@ -24,23 +24,24 @@
                     <li><a href="/" class="nav-link px-2 text-secondary">Home</a></li>
                     <li><a href="/inventory" class="nav-link px-2 text-white">Current inventory</a></li>
                 </ul>
-                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search"> <input type="search"
-                        class="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search">
-                </form>
                 <div n:if={empty($user)} class="text-end"> <button type="button" class="btn btn-outline-light me-2"
                         data-bs-toggle="modal" data-bs-target="#loginModal">Login</button> <button type="button"
-                        class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#createAccountModal">Sign-up</button> </div>
+                        class="btn btn-warning" data-bs-toggle="modal"
+                        data-bs-target="#createAccountModal">Sign-up</button> </div>
 
                 <div n:else class="text-end"> {$user->getEmail()} <a class="btn btn-outline-light me-2"
                         href="/logout">Logout</a>
+                </div>
             </div>
-        </div>
     </header>
     <div id="content">
-        <div n:foreach={$messages as $message} class="alert alert-warning" role="alert">
-            {$message}
-        </div> 
-        {block content}{/block}
+        <div class="container">
+            <div n:foreach={$messages as $message} class="alert alert-warning" role="alert">
+                {$message}
+            </div>
+        
+            {block content}{/block}
+        </div>
     </div>
 
     <div class="modal fade" id="loginModal" tabindex="-1">
@@ -91,8 +92,9 @@
 
                         <div class="mb-3">
                             <label for="createAccountPasswordConfirmation" class="form-label">Confirm password</label>
-                            <input type="password" class="form-control" id="createAccountPasswordConfirmation" name="passwordConfirmation">
-                        </div>                        
+                            <input type="password" class="form-control" id="createAccountPasswordConfirmation"
+                                name="passwordConfirmation">
+                        </div>
                     </div>
                     <input type="hidden" name="locationId" value="{$location->getId()}">
                     <div class="modal-footer">
@@ -102,7 +104,7 @@
                 </div>
             </div>
         </form>
-    </div>    
+    </div>
 </body>
 
 </html>

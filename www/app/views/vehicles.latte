@@ -2,19 +2,19 @@
 
 {block content}
 <div n:if={$user} class="mb-3">
-    <a href="/inventory/add">Add Vehicle</a>
+    <a href="/inventory/add" class="btn btn-sm btn-primary">Add Vehicle</a>
 </div>
 <div n:foreach={$vehicles as $vehicle} class="row">
     <div class="col-md-4">
         <div class="card mb-4 shadow-sm">
-            <img src="{$vehicle->getImage()}" class="bd-placeholder-img card-img-top" width="100%" height="225" alt="{$vehicle->getMake()} {$vehicle->getModel()}">
+            <img src="{$vehicle->getImageUrl()}" class="bd-placeholder-img card-img-top" width="100%" height="225" alt="{$vehicle->getMake()} {$vehicle->getModel()}">
             <div class="card-body">
                 <h5 class="card-title">{$vehicle->getYear()} {$vehicle->getMake()} {$vehicle->getModel()}</h5>
                 <p class="card-text">Price: ${$vehicle->getPrice()}</p>
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                        <a class="btn btn-sm btn-outline-secondary" href="/inventory/{$vehicle->getId()}">View</a>
+                        <a n:if={$user} class="btn btn-sm btn-outline-secondary" href="/inventory/edit/{$vehicle->getId()}">Edit</a>
                     </div>
                     <small class="text-muted">{$vehicle->getMileage()} miles</small>
                 </div>
