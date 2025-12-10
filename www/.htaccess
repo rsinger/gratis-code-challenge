@@ -1,0 +1,10 @@
+    <IfModule mod_rewrite.c>
+        RewriteEngine On
+
+        # Exclude existing files and directories from being rewritten
+        RewriteCond %{REQUEST_FILENAME} !-f
+        RewriteCond %{REQUEST_FILENAME} !-d
+
+        # Rewrite all other requests to index.php
+        RewriteRule ^(.*)$ index.php [L,QSA]
+    </IfModule>
