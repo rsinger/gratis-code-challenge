@@ -1,6 +1,9 @@
 {layout 'layout.latte'}
 
 {block content}
+<div n:if={$user} class="mb-3">
+    <a href="/inventory/add">Add Vehicle</a>
+</div>
 <div n:foreach={$vehicles as $vehicle} class="row">
     <div class="col-md-4">
         <div class="card mb-4 shadow-sm">
