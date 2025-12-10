@@ -6,22 +6,14 @@ use App\Services\Locations;
 
 class Home extends BaseController
 {
-    private Locations $locationsService;
-
     public function __construct()
     {
         parent::__construct();
-        $this->locationsService = new Locations($this->db);
     }
 
     public function index()
     {
-        $location = $this->locationsService->getDefaultLocation();
-        $title = $location ? $location->getName() : 'Home';
-        if (!empty($location->getTagline())) {
-            $title .= ' - ' . $location->getTagline();
-        }
-        $this->render('home.latte', ['title' => $title, 'location' => $location]);
+        $this->render('home.latte');
     }
 
     public static function handleRequest()

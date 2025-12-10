@@ -8,16 +8,22 @@ use App\Controllers\Login;
 require __DIR__ . '/vendor/autoload.php';
 
 // router
-
+session_start();
 switch ($_SERVER['REQUEST_URI']) {
     case '/':
         Home::handleRequest();
         break;
-    case '/inventory':
+    case preg_match('#^/inventory#', $_SERVER['REQUEST_URI']) ? true : false:
         Inventory::handleRequest();
         break;
     case '/login':
+    case '/login/create-account':
         Login::handleRequest();
+        break;
+    case '/logout':
+        session_destroy();
+        header('Location: /');
+        exit();
         break;
     case '/admin':
         Admin::handleRequest();

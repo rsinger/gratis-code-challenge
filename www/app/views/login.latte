@@ -1,0 +1,21 @@
+{layout 'layout.latte'}
+
+{block content}
+<form method="post" action="/login">
+    <div class="input-group">
+        <div class="mb-3">
+            <label for="loginEmail" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="loginEmail" name="email">
+        </div>
+        <div class="mb-3">
+            <label for="loginPassword" class="form-label">Password</label>
+            <input type="password" class="form-control" id="loginPassword" name="password">
+        </div>
+    </div>
+    <input type="hidden" name="locationId" value="{$location->getId()}">
+    <div class="footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Login</button>
+    </div>
+</form>
+{/block}

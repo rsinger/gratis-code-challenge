@@ -7,17 +7,130 @@ use DateTime;
 class Vehicle
 {
     private int $id;
-    private int $model;
-    private int $trim;
+    private string $make;
+    private string $model;
+    private string $trim;
+    private InventoryType $inventoryType;
     private int $year;
-    private string $color;
+    private string $exteriorColor;
+    private string $interiorColor;
+    private string $vin;
+    private string $imageUrl;
     private int $mileage = 0;
     private float $price;
     private DateTime $createdAt;
     private DateTime $updatedAt;
-    private ?int $locationId;
-    private ?DateTime $addedToInventoryAt;
-    private ?DateTime $removedFromInventoryAt;
+    private int $locationId;
+    private int $addedByUserId;
 
+    public function __construct(
+        int $id,
+        string $make,
+        string $model,
+        string $trim,
+        InventoryType $inventoryType,
+        int $year,
+        string $exteriorColor,
+        string $interiorColor,
+        string $vin,
+        string $imageUrl,
+        float $price,
+        int $mileage,
+        int $locationId,
+        DateTime $createdAt,
+        DateTime $updatedAt,
+        int $addedByUserId
+    ) {
+        $this->id = $id;
+        $this->make = $make;
+        $this->model = $model;
+        $this->year = $year;
+        $this->price = $price;
+        $this->mileage = $mileage;
+        $this->locationId = $locationId;
+        $this->createdAt = $createdAt;
+        $this->updatedAt = $updatedAt;
+        $this->trim = $trim;
+        $this->inventoryType = $inventoryType;
+        $this->exteriorColor = $exteriorColor;
+        $this->interiorColor = $interiorColor;
+        $this->vin = $vin;
+        $this->imageUrl = $imageUrl;
+        $this->addedByUserId = $addedByUserId;
+    }
 
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    public function getMake(): string
+    {
+        return $this->make;
+    }
+
+    public function getModel(): string
+    {
+        return $this->model;
+    }
+
+    public function getTrim(): string
+    {
+        return $this->trim;
+    }
+
+    public function getInventoryType(): InventoryType
+    {
+        return $this->inventoryType;
+    }
+
+    public function getYear(): int
+    {
+        return $this->year;
+    }
+    
+    public function getExteriorColor(): string
+    {
+        return $this->exteriorColor;
+    }
+
+    public function getInteriorColor(): string
+    {
+        return $this->interiorColor;
+    }
+
+    public function getVin(): string
+    {
+        return $this->vin;
+    }
+
+    public function getImageUrl(): string
+    {
+        return $this->imageUrl;
+    }
+
+    public function getMileage(): int
+    {
+        return $this->mileage;
+    }
+
+    public function getPrice(): float
+    {
+        return $this->price;
+    }
+
+    public function getCreatedAt(): DateTime
+    {
+        return $this->createdAt;
+    }
+
+    public function getUpdatedAt(): DateTime
+    {
+        return $this->updatedAt;
+    }
+
+    public function getLocationId(): int
+    {
+        return $this->locationId;
+    }
 }
